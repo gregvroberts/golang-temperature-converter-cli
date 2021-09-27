@@ -24,7 +24,7 @@ func main() {
 		fmt.Print("Would you like to convert another temperature ? (y/n) ")
 
 		if shouldConvertAgain != "Y" {
-			fmt.Println("Good bye!")
+			fmt.Println("Goodbye!")
 			break
 		}
 	}
