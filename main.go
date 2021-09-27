@@ -22,13 +22,20 @@ func main() {
 	if len(os.Args) != 2 {
 		printError(errInvalidArguments)
 	}
+
 	originUnit = strings.ToUpper(os.Args[1]) // convert to uppercase
 
 	for {
 		fmt.Print("What is the current temperature in " + originUnit + " ? ")
-		_, err := fmt.Scanln(&originValue)
-		if err != nil {
+		_, err := fmt.Scanln(&originValue) // grab user input up until new line entered
+		if err != nil {                    // error checking
 			printError(errReadingInput)
+		}
+
+		if originUnit == "C" { // if the user inputted a temperature in Celsius
+			convertToFahrenheit(originValue)
+		} else {
+			convertToCelsius(originValue)
 		}
 
 		fmt.Print("Would you like to convert another temperature ? (y/n) ")
